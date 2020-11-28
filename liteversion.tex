@@ -85,7 +85,7 @@ the minority class is positive class in binary classification.
 %不平衡数据处理的重要性，现在典型方法中存在的问题
 The actual demand shows the importance and difficulty of learning on imbalanced datasets.
 The imbalance occurs in many fields, such as medical 
-diagnosis\cite{2013Computational,2019Electrocardiogram} and fault detection\cite{2018Imbalanced}.
+diagnosis \cite{2013Computational,2019Electrocardiogram} and fault detection \cite{2018Imbalanced}.
 In these cases ill samples and fault samples are minority samples.
 %Although the sample size of minority class is small, 
 We tend to be interested in minority samples because minority class contains more value. 
@@ -94,25 +94,25 @@ and the cost of misjudging fault samples is much higher than misjudging normal s
 The difficulty %in solving imbalanced problems 
 lies in the fact that existing machine 
 learning models skew the prediction results towards 
-majority class in the process of prediction\cite{Victoria2013An}, then 
-the minority class cannot be classified correctly\cite{2016A}. 
+majority class in the process of prediction \cite{Victoria2013An}, then 
+the minority class cannot be classified correctly \cite{2016A}. 
 Therefore, More advanced algorithms need to 
 be proposed to improve the ability to predict minority class.
 
 %现有的处理不平衡数据集的方法
 The methods dealing with imbalance can be roughly
-divided into two types: algorithm-level\cite{2007Highcost-sensitive} and data-level\cite{2002SMOTE}.
-Algorithm-based approaches include BalanceCascade\cite{2019Class}, Adaboost, 
-XGBoost\cite{Chen_2016}, etc. 
+divided into two types: algorithm-level \cite{2007Highcost-sensitive} and data-level \cite{2002SMOTE}.
+Algorithm-based approaches include BalanceCascade \cite{2019Class}, Adaboost, 
+XGBoost \cite{Chen_2016}, etc. 
 Algorithm-based methods are limited 
-to a single type of classifier\cite{2020Combined} and 
+to a single type of classifier \cite{2020Combined} and 
 cannot be extended to general machine learning models.
 Data-level methods perform data preprocessing to reduce the imbalance ratio, Then 
 the data can be processed effectively.
-Data-level methods are generally divided into undersampling\cite{2015Undersampled} 
-and oversampling\cite{2002SMOTE}. 
+Data-level methods are generally divided into undersampling \cite{2015Undersampled} 
+and oversampling \cite{2002SMOTE}. 
 undersampling decreases the number of majority samples, %the price is losing part of the information, 
-while oversampling enhances minority class by introducing new samples\cite{2010A}.
+while oversampling enhances minority class by introducing new samples \cite{2010A}.
 In our work, oversampling is used to preprocess the data.
 
 %介绍基于数据的smote方法
@@ -124,7 +124,7 @@ SMOTE is a classic oversampling algorithm,
 SMOTE realizes changing the data distributions by randomly generating new sample 
 on the line of minority points.
 Numerous modifications of SMOTE algorithm have been proposed, such as
-Borderline-SMOTE\cite{2005Borderline}, ADASYN\cite{2008ADASYN}, etc. 
+Borderline-SMOTE \cite{2005Borderline}, ADASYN \cite{2008ADASYN}, etc. 
 However, SMOTE and its derivatives have their weaknesses,
 they are susceptible to noise points and are difficult to deal with
  overlapping data distributions.
@@ -141,21 +141,21 @@ if the monority sample points are distributed in clusters.
 % and dividing the data into multiple clusters, and then oversample data in each cluster.
 Furthermore,
 the method of syntheticing new points by SMOTE is difficult to 
-maintain the original data distributions\cite{2008DATA},
+maintain the original data distributions \cite{2008DATA},
 After using $SMOTE$, 
 the data distributions of minority sample points may change,
 which will affect the prediction progress.
 
 
  %二分类和多分类
- SMOTE and its derivatives are also poor in multiple classification problems\cite{2020Combined}. 
+ SMOTE and its derivatives are also poor in multiple classification problems \cite{2020Combined}. 
  The relationship between two classes is relatively simple,
 but in multiclassification problems, the relationship 
-between classes becomes much more complex\cite{2017Relevance}.
+between classes becomes much more complex \cite{2017Relevance}.
 When oversampling new points near the boundaries of multiple classes, 
-creating overlapping data distributions\cite{Jierui2013Overlapping} is hard to avoid.
+creating overlapping data distributions \cite{Jierui2013Overlapping} is hard to avoid.
 The existing methods to deal with multiclassification include transforming 
-the problem into binary classification problems(OVO)\cite{articlemulti} or 
+the problem into binary classification problems(OVO) \cite{articlemulti} or 
 dividing the problem into one to many problems(OVA).
 But processing two classes separately(OVO) will ignore the rest classes' information.
 Treating one class as a minority class and the rest as a majority class(OVA)
@@ -246,8 +246,8 @@ DBSCAN defines a cluster as the largest set of points
   defined as noise points.
 The core points can best represent the distribution of the corresponding cluster, 
 therefore we can use the distribution of the core points to generate data.
-DBSCAN has been used for generating new points, such as DBSMOTE\cite{2012DBSMOTE} and
-DSMOTE\cite{2019Over}, but these methods failed to escape the SMOTE limitation in 
+DBSCAN has been used for generating new points, such as DBSMOTE \cite{2012DBSMOTE} and
+DSMOTE \cite{2019Over}, but these methods failed to escape the SMOTE limitation in 
 the method of systneticing new samples and they did not use the distribution of minority class data.
 
 
@@ -279,9 +279,9 @@ the method of systneticing new samples and they did not use the distribution of 
 \textbf{Oversampling}, balances the distribution of data 
 by generating new data samples without losing information.
 %这里着重介绍各个方法的细节，缺点之前已经详细介绍了
-The fundamental idea of SMOTE is to generate new samples by interpolation between minority class samples\cite{2018SMOTE}.
+The fundamental idea of SMOTE is to generate new samples by interpolation between minority class samples \cite{2018SMOTE}.
 Specifically, for a certain sample $x_i$, one of the K nearest neighbors is randomly selected as $x_i ^{'}$.
-Use the Eq.\ref{equation14} to generate a new sample $x_{new}$. $\epsilon \in [0,1]$ is a random number.
+Use the Eq. \ref{equation14} to generate a new sample $x_{new}$. $\epsilon \in [0,1]$ is a random number.
 \begin{equation}
   \label{equation14}
   x_{new}=x_i+(x_i-x_i^{'})\times \epsilon
@@ -292,7 +292,7 @@ Use the Eq.\ref{equation14} to generate a new sample $x_{new}$. $\epsilon \in [0
  SMOTE algorithm is easily affected by noise.
 When noise data is present
 , the new syntheticed samples may overlap with majority class samples.
-Borderline-SMOTE\cite{2005Borderline} is based on SMOTE, this algorithm classifies
+Borderline-SMOTE \cite{2005Borderline} is based on SMOTE, this algorithm classifies
 the minority samples into three types, 
 $noise$, $danger$ and $safe$.
 All the K nearest neighbors of the $noise$ points are majority points, 
@@ -301,11 +301,11 @@ of the $danger$ points are majority points,
 and all of K nearest neighbors of $safe$ points are minority points.
 Borderline-SMOTE uses $danger$ points to generate new samples.
 To a certain extent Borderline-SMOTE reduced the negative effect of noise and overlapping data distribution.
-ADASYN\cite{2008ADASYN} is an adaptive composite sampling method, 
+ADASYN \cite{2008ADASYN} is an adaptive composite sampling method, 
 a mechanism is used to determine how many samples need to be synthesized for each minority sample.
 In general, for a minority sample, more majority points in its K nearest neighbors, 
 the more minority points will be generated near this point.
-There are also methods conbined oversampling and undersampling, such as SMOTE+ENN\cite{2019Electrocardiogram},
+There are also methods conbined oversampling and undersampling, such as SMOTE+ENN \cite{2019Electrocardiogram},
 This method first deleted the majority points of which all of K nearest neighbors are minority points,
 then use SMOTE to generate new samples.
 
@@ -314,7 +314,7 @@ then use SMOTE to generate new samples.
 % In addition, for the problem of multiple classification, 
 % methods based on SMOTE could not make use of the relationship between multiple classes during the process of 
 % generation and expected effect cannot be achieved.
-CCR\cite{2017CCR} and MC-CCR\cite{2020Combined} algorithms are oversampling algorithms based on $energy$,
+CCR \cite{2017CCR} and MC-CCR \cite{2020Combined} algorithms are oversampling algorithms based on $energy$,
 In these methods, a spherical region is drawn at the center of each minority sample point. 
 The spherical region is constantly expanding, when meeting a majority point the $energy$ is reduced.
 When the $energy$ is exhausted, the region will no longer extend.
@@ -355,7 +355,8 @@ Second, We calculate the number of sample points generated near different types 
 Third, we systnetic new points.
 We use gaussian distribution when we systnetic points near borderline points and core points.
 In addition, we use SMOTE to systetic points if minority points cannot form effective clusters.
-Some of import parameters we used in this section are shown in table\ref{table15}.
+Some of import parameters we used in this section are shown in table \ref{table15}.
+The overall process of ODG is shown is algorithm \ref{alg1}.
 \begin{table}[]
   \caption{Parameters of ODG}
   \label{table15}
@@ -378,7 +379,6 @@ Some of import parameters we used in this section are shown in table\ref{table15
   $n_{core}$            & the number of generation near one cluster               \\ \hline
   \end{tabular}
   \end{table}
-The flow of ODG is shown in the Algorithm \ref{alg1}.
 \begin{algorithm}[tbp]
   \caption{ODG} %算法的名字
   \label{alg1}
@@ -409,7 +409,7 @@ The flow of ODG is shown in the Algorithm \ref{alg1}.
 We give the details of ODG algorithm, which is used to solve the binary classification problems.
 \subsubsection{Clustering}
 We cluster the minority sample points firstly.
-An result of K-MEANS and DBSCAN are shown in Fig.\ref{fig19}.
+An result of K-MEANS and DBSCAN are shown in Fig. \ref{fig19}.
 The same color represents the same cluster.
 Obviously, the result of DBSCAN is more 
 consistent with the data distribution and can easily detect noise points.
@@ -426,7 +426,7 @@ we determine the value of $N_{borderline}$,
 $N_{core}$ and $N_{noise}$. 
 % We assume that the number of majority sample points is $N_{maj}$,
 % and the number of minority sample points is $N_{min}$, then the number of oversample points 
-$N_{oversampling}$ is calculated as Eq.\ref{equation1}.
+$N_{oversampling}$ is calculated as Eq. \ref{equation1}.
 \begin{equation}
   \label{equation1}
   N_{oversampling}=N_{maj}-N_{min}
@@ -442,8 +442,8 @@ hyperparameter or can be adaptive determined based
 In general, $\alpha_{borderline}$ is greater than $\frac{N_{borderline}}{N_{min}}$,
 because we prefer to generate data near borderline points,
 then the classification surface is biased to minority points.
-Fig.\ref{fig20}(a) shows the relation with $\alpha_{borderline}$ and $\frac{N_{borderline}}{N_{min}}$.
-$\alpha_{borderline}$ is evaluated according to the Eq.\ref{equation15}.
+Fig. \ref{fig20}(a) shows the relation with $\alpha_{borderline}$ and $\frac{N_{borderline}}{N_{min}}$.
+$\alpha_{borderline}$ is evaluated according to the Eq. \ref{equation15}.
 \begin{equation}
   \label{equation15}
   \alpha_{borderline}=(\frac{N_{borderline}}{N_{min}})^{\frac{1}{2}}
@@ -482,7 +482,7 @@ part of new samples will be synthesized near noise points.
 As the amount of noise sample point data increases, 
 the ratio of generated data near noise points also increases. 
 The proportion of samples generated near noise point
- is $\alpha_{noise}$ is shown in equation\ref{equation10}.
+ is $\alpha_{noise}$ is shown in Eq. \ref{equation10}.
 \begin{equation}
   \label{equation10}
   \alpha_{noise}=
@@ -491,15 +491,15 @@ The proportion of samples generated near noise point
   0                                                                               & ratio < noise\_ratio
   \end{cases}
 \end{equation}
-The reason for using equation\ref{equation10} is that when $ratio$ is exactly
+The reason for using Eq. \ref{equation10} is that when $ratio$ is exactly
 $noise\_ratio$, the generated ratio is $0.1$. Similar with $borderline\_ratio$,
 We can also have many methods to calculate $\alpha_{noise}$,
 we use the quadratic function curve similarly with $\alpha\_borderline$ in our work.
-When the $noise\_ratio$ is 0.5, the trend of $\alpha_{noise}$ is shown in Fig.\ref{fig20}(b).
+When the $noise\_ratio$ is 0.5, the trend of $\alpha_{noise}$ is shown in Fig. \ref{fig20}(b).
 We calculate $N_{noise}$ first, and then determine the value of $N_{borderline}$ and $N_{core}$.
 $N_{noise}$, $N_{borderline}$ 
-and $N_{core}$ are shown in Eq.\ref{equation11}, Eq.\ref{equation16}
-and Eq.\ref{equation17}.
+and $N_{core}$ are shown in Eq. \ref{equation11}, Eq. \ref{equation16}
+and Eq. \ref{equation17}.
 \begin{equation}
   \label{equation11}
   % \begin{aligned}
@@ -549,7 +549,7 @@ if the K nearest neighbors of the minority point have more majority sample point
 means the point 
 is closer to the decision boundary, and more sample points should be generated near this point.
 We set the number of majority sample points is $n\_knearest\_maj$,
-then $n_{boardline}$ can be obtained in Eq.\ref{equation4}.
+then $n_{boardline}$ can be obtained in Eq. \ref{equation4}.
 \begin{equation}
   \label{equation4}
   n_{borderline}=\frac{n\_knearest\_maj}{\sum_{i\in m} n\_knearest\_maj}\times N_{boardline}
@@ -604,7 +604,7 @@ We set the particular borderline point is $point$,
 $cov$ is the function to calculate the covariance matrix,
 The function to generate new sample points using 
 gaussian distribution is $multivariate\_normal$,
-New sample points $new\_data$ can be obtained by Eq.\ref{equation3}.
+New sample points $new\_data$ can be obtained by Eq. \ref{equation3}.
 \begin{equation}
   \label{equation3}
   \begin{aligned}
@@ -612,7 +612,7 @@ New sample points $new\_data$ can be obtained by Eq.\ref{equation3}.
       & new\_data=multivariate\_normal(point,cov\_mat,n_{boardline})
   \end{aligned}
 \end{equation}
-The algorithm for generating new sample points near borderline points is algorithm\ref{alg3}.
+The algorithm for generating new sample points near borderline points is algorithm \ref{alg3}.
 %\vspace{-0.4cm}
 \subsubsection{Generate data near core points}
 \begin{algorithm}[tb]
@@ -635,7 +635,7 @@ After DBSCAN,
 the number of generation near the core points of each cluster depends 
 on the number of sample points in the cluster.
 We assume the number of sample points in the cluster is $num\_data\_cluster$, 
- the number of generalization in this cluster is $n_{core}$, as shown in \ref{equation6}.
+ the number of generalization in this cluster is $n_{core}$, as shown in Eq.\ref{equation6}.
  \begin{equation}
   \label{equation6}
   n_{core}=\frac{num\_data\_cluster}{\sum_{i \in cluster} num\_data\_cluster}
@@ -650,7 +650,7 @@ The equation\ref{equation7} is to generate new sample points near core points.
     & new\_data=multivariate\_normal(mean(core\_points),cov\_mat,n_{core})
   \end{aligned}
 \end{equation}
-The algorithm for generating new sample points at core points is algorithm\ref{alg4}.
+The algorithm for generating new sample points at core points is algorithm \ref{alg4}.
 
 %\vspace{-0.4cm}
 \subsubsection{Generate data near noise points}
@@ -672,7 +672,7 @@ Therefore SMOTE is used.
 A single sample is randomly selected from the $K$ nearest neighbors of the minority point, 
  and sample points are randomly generated on the line between the two points.
  We set $\gamma \in [0,1]$ is a random value, the two points are $point1$ and $point2$,
- then the generation equation is \ref{equation9}.
+ then the generation equation is Eq.\ref{equation9}.
  \begin{equation}
   \label{equation9}
   new\_point=point1+\gamma \times (point2-point1)
@@ -694,7 +694,7 @@ A single sample is randomly selected from the $K$ nearest neighbors of the minor
   \label{fig14}
   \end{figure}
 
-As shown in Fig.\ref{fig14}, (a) and (b) are distribution of original data and 
+As shown in Fig. \ref{fig14}, (a) and (b) are distribution of original data and 
 distribution
  of oversampled data.
 Minority samples in the dataset are too rare and far apart to form effective cluster, we cannot use
@@ -705,7 +705,7 @@ New samples are generated according to the
 distribution characteristics of minority points. 
 At the same time we also clean the majority points
  near minority points to alleviate the overlapping data distributions.
-We use a similar approach to the model CCR\cite{2017CCR}.
+We use a similar approach to the model CCR \cite{2017CCR}.
 When dealing with borderline points, 
 the K nearest neighbors of each minority point is calculated. 
 With this minority point as the center and the maximum distance in the K neighbors as the radius, 
@@ -827,7 +827,7 @@ In addition, overlapping and noise problems will be more serious.
 %The OVA method ignores the information between classes that are merged into a unified class,
 %With the increase of the number of categories, the complexity of the OVO method increases rapidly.
 The traditional OVA and OVO methods have their own disadvantages, 
-\cite{2020Combined,2019Radial} presents a method to deal with multiclassification problems,
+ \cite{2020Combined,2019Radial} presents a method to deal with multiclassification problems,
 Combine this method with ODG, we get our algorithm MC-ODG for multiclassification.
 We iterate over multiple classes. When we oversample each class,
 A subset is selected as a majority class from the already processed classes, 
@@ -843,7 +843,7 @@ other majority points when oversampling each class.
 The overall flow of the MC-ODG algorithm is shown in the algorithm\ref{alg2}.
 
 
- Fig.\ref{fig17} shows the original dataset and the oversampling results of SMOTE, Borderline-SMOTE,
+ Fig. \ref{fig17} shows the original dataset and the oversampling results of SMOTE, Borderline-SMOTE,
  SMOTE+ENN and MC-ODG. We can find that the original data distributions 
  can be retained after oversampling using the $MC-ODG$ algorithm.
 
@@ -900,7 +900,7 @@ The closer the value is to 1, the better the prediction result is.
 The evaluation of multiclassification is more complex,
  and there is not a unified evaluation standard and it is still an open problem.
  In addition to the above mentioned Precision, Recall and F-value,
- mGM and CBA\cite{2017Relevance} are also introduced.
+ mGM and CBA \cite{2017Relevance} are also introduced.
  The equation of mGM and CBA are as follow:
  \begin{equation}
   \label{equation12}
@@ -944,14 +944,14 @@ and ODG or MC-ODG.
 we adopted the cross validation method of K folding, 
 set K=5, repeated the experiment for 10 times, 
 and took the mean value as the final result.
-Parameters of ODG, MC-ODG and other algorithms are shown in table\ref{table13}.
+Parameters of ODG, MC-ODG and other algorithms are shown in table \ref{table13}.
 $fit\_borderline\_ratio$ means being 
 adaptive to determine the $borderline\_ratio$ or not.
 We gave a comparison of different oversampling methods on different 
 datasets based using different machine learning models.  
 The parameters of DBSCAN n are $eps$ and $min\_pts$.
 $borderline\_ratio$ of some datasets is artificially specified.
-Parameter settings on different datasets are shown in table\ref{table5}.
+Parameter settings on different datasets are shown in table \ref{table5}.
 When the parameter had multiple optional values, we took the optimal result.
 \begin{table}[tb]
   \caption{Parameters of different algorithms}
@@ -1151,25 +1151,11 @@ This paper presents new oversampling algorithms.
 Aiming at the problems of existing oversampling algorithms, we proposed ODG and MC-ODG algorithms
 to decrease the imbalance ratio. 
 These algorithm applys DBSCAN and gaussian distribution to avoid the interference of noise
-and overlapping data distributions and 
+and overlapping data distributions. The generated data points 
 obtained original distributions after oversampling.
 For multiclassification,
-the generation process makes use of the information of various classes in the original data.
-% ODG is used to solve the binary classification problem while the MC-ODG algorithm is used to solve the multi-classification problem. In the ODG algorithm, 
-%  we first use the DBSCAN algorithm to cluster minority points.
-%  Different oversampling methods are used to deal with different points.
-% The key is generating new samples near the borderline points.
-% When new samples are generated, 
-% the distribution of the generated data depends on the variance of the core points.
-% The number generated is positively correlated with the number of majority points near the boundary point.
-% Meanwhile majority samples in the K nearest neighbors 
-% are moved out of the maximum distance in the K neighbors to avoid overlapping.
-% MC-ODG takes an iterative approach for each class. 
-% In each oversampling process, the distribution information of other majority classes is used.
-% Compared with previous proposed oversampling methods, 
-% the data points generated by our methods retains the original data distribution.
-% ODG can effectively avoid overlapping and handle noise data points.
-% Experimental results show that it is an effective method.
+the generation process makes use of the 
+information of various classes in the original data.
 
 In our future work, we will consider how to implement oversampling in a simpler way.
 We find that lots of parameters to be processed in ODG and MC-ODG. 
